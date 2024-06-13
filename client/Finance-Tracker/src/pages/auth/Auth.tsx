@@ -1,7 +1,5 @@
 import {SignedIn, SignedOut, SignInButton, SignUpButton, UserButton} from '@clerk/clerk-react' 
 
-import React from 'react'
-
 function Auth() {
   return (
     <div className="sign-in-container">
