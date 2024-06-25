@@ -1,11 +1,13 @@
 import { useState } from "react"
 import { useUser } from "@clerk/clerk-react"
+import { useFinancialRecords } from "../../context/context"
 
 function Record() {
     const [description, setDescription] = useState('')
     const [amount, setAmount] = useState('')
     const [category, setCategory] = useState('')
     const [payment, setPayment] = useState('')
+    const {addRecord} = useFinancialRecords ();
 
     const { user } = useUser();
 
@@ -13,7 +15,7 @@ function Record() {
         event.preventDefault();
 
         const newRecord = {
-            userId: user?.id,
+            userId: user?.id ?? "",
             date: new Date(),
             description: description,
             amount: parseFloat(amount),
@@ -21,9 +23,9 @@ function Record() {
             payment: payment,
         };
 
-        // addRecord(newRecord)
+        addRecord(newRecord)
 
-        // Reset form fields
+
         setDescription("")
         setAmount("")
         setCategory("")
