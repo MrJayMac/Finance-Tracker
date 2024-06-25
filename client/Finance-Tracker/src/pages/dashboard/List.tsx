@@ -1,7 +1,3 @@
-function list() {
-  return (
-    <div>list</div>
-  )
+export const List = () =>{
+  return <div>List</div>
 }
-
-export default list
